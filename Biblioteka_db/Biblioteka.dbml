@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="xxxx" Class="BibliotekaDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=&quot;C:\Users\Witek\Documents\Visual Studio 2012\Projects\Biblioteka_db\xxxx.mdf&quot;;Integrated Security=True;Connect Timeout=30" SettingsObjectName="Biblioteka_db.Properties.Settings" SettingsPropertyName="xxxxConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Autor" Member="Autors">
+    <Type Name="Autor">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="imie" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="nazwisko" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="rokUrodzenia" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Association Name="Autor_KsiazkaAutora" Member="KsiazkaAutoras" ThisKey="id" OtherKey="autorID" Type="KsiazkaAutora" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Wypozyczenie" Member="Wypozyczenies">
+    <Type Name="Wypozyczenie">
+      <Column Name="uzytkownikID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="egzemplarzID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="dataRozpoczecia" Type="System.DateTime" DbType="DateTime NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="dataZakonczenia" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="czyWypozyczona" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="czyZarezerwowana" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Egzemplarz_Wypozyczenie" Member="Egzemplarz" ThisKey="egzemplarzID" OtherKey="id" Type="Egzemplarz" IsForeignKey="true" />
+      <Association Name="Uzytkownik_Wypozyczenie" Member="Uzytkownik" ThisKey="uzytkownikID" OtherKey="id" Type="Uzytkownik" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Egzemplarz" Member="Egzemplarzs">
+    <Type Name="Egzemplarz">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ksiazkaID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Egzemplarz_Wypozyczenie" Member="Wypozyczenies" ThisKey="id" OtherKey="egzemplarzID" Type="Wypozyczenie" />
+      <Association Name="Ksiazka_Egzemplarz" Member="Ksiazka" ThisKey="ksiazkaID" OtherKey="id" Type="Ksiazka" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Kategoria" Member="Kategorias">
+    <Type Name="Kategoria">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="kategoriaNadrzednaID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="nazwa" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Kategoria_Kategoria" Member="Kategorias" ThisKey="id" OtherKey="kategoriaNadrzednaID" Type="Kategoria" />
+      <Association Name="Kategoria_KategoriaKsiazki" Member="KategoriaKsiazkis" ThisKey="id" OtherKey="kategoriaID" Type="KategoriaKsiazki" />
+      <Association Name="Kategoria_Kategoria" Member="Kategoria1" ThisKey="kategoriaNadrzednaID" OtherKey="id" Type="Kategoria" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.KategoriaKsiazki" Member="KategoriaKsiazkis">
+    <Type Name="KategoriaKsiazki">
+      <Column Name="kategoriaID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ksiazkaID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Kategoria_KategoriaKsiazki" Member="Kategoria" ThisKey="kategoriaID" OtherKey="id" Type="Kategoria" IsForeignKey="true" />
+      <Association Name="Ksiazka_KategoriaKsiazki" Member="Ksiazka" ThisKey="ksiazkaID" OtherKey="id" Type="Ksiazka" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Ksiazka" Member="Ksiazkas">
+    <Type Name="Ksiazka">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="tytul" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="rokWydania" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="zdjecie" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="opis" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Association Name="Ksiazka_Egzemplarz" Member="Egzemplarzs" ThisKey="id" OtherKey="ksiazkaID" Type="Egzemplarz" />
+      <Association Name="Ksiazka_KategoriaKsiazki" Member="KategoriaKsiazkis" ThisKey="id" OtherKey="ksiazkaID" Type="KategoriaKsiazki" />
+      <Association Name="Ksiazka_KsiazkaAutora" Member="KsiazkaAutoras" ThisKey="id" OtherKey="ksiazkaID" Type="KsiazkaAutora" />
+    </Type>
+  </Table>
+  <Table Name="dbo.KsiazkaAutora" Member="KsiazkaAutoras">
+    <Type Name="KsiazkaAutora">
+      <Column Name="autorID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ksiazkaID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Autor_KsiazkaAutora" Member="Autor" ThisKey="autorID" OtherKey="id" Type="Autor" IsForeignKey="true" />
+      <Association Name="Ksiazka_KsiazkaAutora" Member="Ksiazka" ThisKey="ksiazkaID" OtherKey="id" Type="Ksiazka" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Uzytkownik" Member="Uzytkowniks">
+    <Type Name="Uzytkownik">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="login" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="haslo" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="imie" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="nazwisko" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="czyAdmin" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="czyAktywny" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Uzytkownik_Wypozyczenie" Member="Wypozyczenies" ThisKey="id" OtherKey="uzytkownikID" Type="Wypozyczenie" />
+    </Type>
+  </Table>
+</Database>

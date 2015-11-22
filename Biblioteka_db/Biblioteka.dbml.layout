@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="Biblioteka">
+  <DataContextMoniker Name="/BibliotekaDataContext" />
+  <nestedChildShapes>
+    <classShape Id="58caa6f5-7c3b-4987-acf4-0673152db1c9" absoluteBounds="8.75, 0.5, 2, 1.5785953776041657">
+      <DataClassMoniker Name="/BibliotekaDataContext/Autor" />
+      <nestedChildShapes>
+        <elementListCompartment Id="459fb766-b693-4aa3-b121-4f6006a31514" absoluteBounds="8.765, 0.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ea7aff3b-b24c-4783-b8a7-8e3aadffbdef" absoluteBounds="3.25, 0.5, 2, 1.9631982421875005">
+      <DataClassMoniker Name="/BibliotekaDataContext/Wypozyczenie" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5f40c016-5f13-4efe-9d2e-fa1f1e55d2ec" absoluteBounds="3.2649999999999997, 0.96, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9a0e5a14-b3b3-462b-afc5-9c320b14ead3" absoluteBounds="6, 0.5, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/BibliotekaDataContext/Egzemplarz" />
+      <nestedChildShapes>
+        <elementListCompartment Id="dc7e3cae-64af-4c2c-83e7-af76d34f9f2a" absoluteBounds="6.0150000000000006, 0.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0e25278f-76b8-42e7-82d0-b44e51c891f8" absoluteBounds="0.5, 3.25, 2, 1.3862939453125">
+      <DataClassMoniker Name="/BibliotekaDataContext/Kategoria" />
+      <nestedChildShapes>
+        <elementListCompartment Id="cfa47471-9664-42ec-b5dc-5213eebd59af" absoluteBounds="0.51500000000000057, 3.71, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1388da1b-93e7-4f14-879d-946b307bd3ce" absoluteBounds="3.25, 3.375, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/BibliotekaDataContext/KategoriaKsiazki" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a9bd16d2-f645-449e-bb7d-646bca9f3bae" absoluteBounds="3.2650000000000006, 3.8350000000000009, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0ec5c655-6ded-42d8-a5cc-336183457197" absoluteBounds="6, 2.875, 2, 1.7708968098958327">
+      <DataClassMoniker Name="/BibliotekaDataContext/Ksiazka" />
+      <nestedChildShapes>
+        <elementListCompartment Id="352d943c-f6f9-4d8e-9b52-b490655eab3e" absoluteBounds="6.0150000000000006, 3.335, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="eb96604b-9379-42f3-8676-b5b97a0d0d4b" absoluteBounds="8.75, 3.375, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/BibliotekaDataContext/KsiazkaAutora" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f54f1909-700e-4be5-b680-8556ff7722f7" absoluteBounds="8.765, 3.835, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e1204db0-f53f-4868-a1c7-d97897487878" absoluteBounds="0.5, 0.5, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/BibliotekaDataContext/Uzytkownik" />
+      <nestedChildShapes>
+        <elementListCompartment Id="374c086d-b317-483f-8a61-7e13030328ff" absoluteBounds="0.51500000000000012, 0.96000000000000085, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(6 : 1.09699625651042); (5.25 : 1.09699625651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/BibliotekaDataContext/Egzemplarz/Egzemplarz_Wypozyczenie" />
+      <nodes>
+        <classShapeMoniker Id="9a0e5a14-b3b3-462b-afc5-9c320b14ead3" />
+        <classShapeMoniker Id="ea7aff3b-b24c-4783-b8a7-8e3aadffbdef" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.19931705603966 : 4.6362939453125); (1.19931705603966 : 4.8862939453125); (1.81500117938702 : 4.8862939453125); (1.81500117938702 : 4.6362939453125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/BibliotekaDataContext/Kategoria/Kategoria_Kategoria" />
+      <nodes>
+        <classShapeMoniker Id="0e25278f-76b8-42e7-82d0-b44e51c891f8" />
+        <classShapeMoniker Id="0e25278f-76b8-42e7-82d0-b44e51c891f8" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.5 : 3.97199625651042); (3.25 : 3.97199625651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/BibliotekaDataContext/Kategoria/Kategoria_KategoriaKsiazki" />
+      <nodes>
+        <classShapeMoniker Id="0e25278f-76b8-42e7-82d0-b44e51c891f8" />
+        <classShapeMoniker Id="1388da1b-93e7-4f14-879d-946b307bd3ce" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(7 : 2.875); (7 : 1.69399251302083)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/BibliotekaDataContext/Ksiazka/Ksiazka_Egzemplarz" />
+      <nodes>
+        <classShapeMoniker Id="0ec5c655-6ded-42d8-a5cc-336183457197" />
+        <classShapeMoniker Id="9a0e5a14-b3b3-462b-afc5-9c320b14ead3" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(6 : 3.97199625651042); (5.25 : 3.97199625651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/BibliotekaDataContext/Ksiazka/Ksiazka_KategoriaKsiazki" />
+      <nodes>
+        <classShapeMoniker Id="0ec5c655-6ded-42d8-a5cc-336183457197" />
+        <classShapeMoniker Id="1388da1b-93e7-4f14-879d-946b307bd3ce" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(9.75 : 2.07859537760417); (9.75 : 3.375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/BibliotekaDataContext/Autor/Autor_KsiazkaAutora" />
+      <nodes>
+        <classShapeMoniker Id="58caa6f5-7c3b-4987-acf4-0673152db1c9" />
+        <classShapeMoniker Id="eb96604b-9379-42f3-8676-b5b97a0d0d4b" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8 : 3.97199625651042); (8.75 : 3.97199625651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/BibliotekaDataContext/Ksiazka/Ksiazka_KsiazkaAutora" />
+      <nodes>
+        <classShapeMoniker Id="0ec5c655-6ded-42d8-a5cc-336183457197" />
+        <classShapeMoniker Id="eb96604b-9379-42f3-8676-b5b97a0d0d4b" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.5 : 1.48159912109375); (3.25 : 1.48159912109375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/BibliotekaDataContext/Uzytkownik/Uzytkownik_Wypozyczenie" />
+      <nodes>
+        <classShapeMoniker Id="e1204db0-f53f-4868-a1c7-d97897487878" />
+        <classShapeMoniker Id="ea7aff3b-b24c-4783-b8a7-8e3aadffbdef" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
